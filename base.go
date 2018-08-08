@@ -30,7 +30,7 @@ var baseButtonStyles = gui.ButtonStyles { // ButtonStyles (from gui/button.go)
 	Over: baseButtonStyle,
 	Over.PanelStyle.BgColor = baseColorStyle.BgOver,
 	Focus: baseButtonStyle,
-	Focus.PanelStyle.BgColor = baseColorStyle.BgOver,
+	Focus.PanelStyle.BorderColor = baseColorStyle.BgOver,
 	Pressed: baseButtonStyle,
 	Pressed.PanelStyle.BgColor = baseColorStyle.BgOver,
 	Pressed.PanelStyle.Border = gui.RectBounds{2, 2, 2, 2},
