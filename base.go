@@ -6,8 +6,8 @@ import (
 )
 
 var baseBasicStyle = gui.BasicStyle { // BasicStyle (from gui/panel.go)
-	PanelStyle = basePanelStyle,
-	FgColor = baseColorStyle.Text,
+	PanelStyle: basePanelStyle,
+	FgColor: baseColorStyle.Text,
 }
 
 var baseBorderColor = baseColorStyle.BgDark
@@ -28,13 +28,13 @@ var baseButtonStyle = gui.ButtonStyle { // ButtonStyle (from gui/button.go)
 var baseButtonStyles = gui.ButtonStyles { // ButtonStyles (from gui/button.go)
 	Normal: baseButtonStyle,
 	Over: baseButtonStyle,
-	Over.PanelStyle.BgColor = baseColorStyle.BgOver,
+	Over.PanelStyle.BgColor: baseColorStyle.BgOver,
 	Focus: baseButtonStyle,
-	Focus.PanelStyle.BorderColor = baseColorStyle.BgOver,
+	Focus.PanelStyle.BorderColor: baseColorStyle.BgOver,
 	Pressed: baseButtonStyle,
-	Pressed.PanelStyle.BgColor = baseColorStyle.BgOver,
-	Pressed.PanelStyle.Border = gui.RectBounds{2, 2, 2, 2},
-	Pressed.PanelStyle.Padding = gui.RectBounds{2, 2, 0, 4},
+	Pressed.PanelStyle.BgColor: baseColorStyle.BgOver,
+	Pressed.PanelStyle.Border: gui.RectBounds{2, 2, 2, 2},
+	Pressed.PanelStyle.Padding: gui.RectBounds{2, 2, 0, 4},
 	Disabled: baseButtonStyle,
 	Disabled.BorderColor: baseColorStyle.TextDis,
 	Disabled.FgColor: baseColorStyle.TextDis,
@@ -110,5 +110,5 @@ var Base = gui.Style{
 	ImageButton: { // ImageButtonStyles
 	},
 	TabBar: { // TabBarStyles
-	}
+	},
 }
