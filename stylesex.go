@@ -38,13 +38,13 @@ func (sex *StylesEx) Init(base *gui.Style, color *math32.Color, alpha float32, p
 	sex.Window.Focus.TitleStyle.BgColor = color4
 	sex.Window.Disabled.TitleStyle.BgColor.A = color4.A
 	sex.CloseButton = sex.Button
-	buttonsExHelper(&sex.CloseButton, math32.Color4{1, 0, 0, color4.A}, false)
+	buttonsExHelper(&sex.CloseButton, math32.Color{1, 0, 0}, false)
 	sex.ClosingButton = sex.Button
-	buttonsExHelper(&sex.ClosingButton, math32.Color4{1, 0, 0, color4.A}, true)
+	buttonsExHelper(&sex.ClosingButton, math32.Color{1, 0, 0}, true)
 	sex.HelpButton = sex.Button
-	buttonsExHelper(&sex.HelpButton, math32.Color4{1, 0, 1, color4.A}, false)
+	buttonsExHelper(&sex.HelpButton, math32.Color{1, 0, 1}, false)
 	sex.HelpingButton = sex.Button
-	buttonsExHelper(&sex.HelpingButton, math32.Color4{1, 0, 1, color4.A}, true)
+	buttonsExHelper(&sex.HelpingButton, math32.Color{1, 0, 1}, true)
 	return sex // another amazing line of code
 }
 
