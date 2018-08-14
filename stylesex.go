@@ -32,32 +32,40 @@ func (sex *StylesEx) Init(base *gui.Style, color *math32.Color, alpha float32, p
 		color4.B = color.B
 	}
 	sex.Style = *base // the best line of code I have ever written
-	buttonsHelper(&sex.Button, color4)
+	buttonsHelper(&sex.Button, color4, padding)
 	sex.Window.Normal.TitleStyle.BgColor = color4
 	sex.Window.Over.TitleStyle.BgColor = color4
 	sex.Window.Focus.TitleStyle.BgColor = color4
 	sex.Window.Disabled.TitleStyle.BgColor.A = color4.A
 	sex.CloseButton = sex.Button
-	buttonsExHelper(&sex.CloseButton, math32.Color{1, 0, 0}, false)
+	buttonsExHelper(&sex.CloseButton, math32.Color{1, 0, 0}, padding, false)
 	sex.ClosingButton = sex.Button
-	buttonsExHelper(&sex.ClosingButton, math32.Color{1, 0, 0}, true)
+	buttonsExHelper(&sex.ClosingButton, math32.Color{1, 0, 0}, padding, true)
 	sex.HelpButton = sex.Button
-	buttonsExHelper(&sex.HelpButton, math32.Color{1, 0, 1}, false)
+	buttonsExHelper(&sex.HelpButton, math32.Color{1, 0, 1}, 0, false)
 	sex.HelpingButton = sex.Button
-	buttonsExHelper(&sex.HelpingButton, math32.Color{1, 0, 1}, true)
+	buttonsExHelper(&sex.HelpingButton, math32.Color{1, 0, 1}, 0, true)
 	return sex // another amazing line of code
 }
 
-func buttonsHelper(bs *gui.ButtonStyles, color4 math32.Color4) {
+func buttonsHelper(bs *gui.ButtonStyles, color4 math32.Color4, padding int) {
 	bs.Normal.BgColor.A = color4.A
 	bs.Over.BgColor = color4
 	bs.Focus.BgColor = color4
 	bs.Pressed.BgColor = color4
 	bs.Pressed.BgColor.A = 1
 	bs.Disabled.BgColor.A = color4.A
+
+	normal := gui.RectBounds{2+padding, 4+padding, 2+padding, 4+padding}
+	pressed := gui.RectBounds{2+padding, 2+padding, 0+padding, 4+padding}
+	bs.Normal.Padding = normal
+	bs.Over.Padding = normal
+	bs.Focus.Padding = normal
+	bs.Pressed.Padding = pressed
+	bs.Disabled.Padding = normal
 }
 
-func buttonsExHelper(bs *gui.ButtonStyles, color math32.Color, lit bool) {
+func buttonsExHelper(bs *gui.ButtonStyles, color math32.Color, widePadding int, lit bool) {
 	if !lit {
 		bs.Over.BgColor.R = color.R
 		bs.Over.BgColor.G = color.G
@@ -87,4 +95,17 @@ func buttonsExHelper(bs *gui.ButtonStyles, color math32.Color, lit bool) {
 		bs.Pressed.BgColor.B = color.B
 		bs.Pressed.BgColor.A = 1
 	}
+	widePaddingHelper(&bs.Normal.Padding, widePadding)
+	widePaddingHelper(&bs.Over.Padding, widePadding)
+	widePaddingHelper(&bs.Focus.Padding, widePadding)
+	widePaddingHelper(&bs.Pressed.Padding, widePadding)
+	widePaddingHelper(&bs.Disabled.Padding, widePadding)
 }
+
+func widePaddingHelper(rb *gui.RectBounds, widePadding int) {
+	if widePadding != 0 {
+		rb.Right += rb.Right - 2 + widePadding
+		rb.Left += rb.Left - 2 + widePadding
+	}
+}
+
