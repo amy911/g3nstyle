@@ -49,25 +49,42 @@ func (sex *StylesEx) Init(base *gui.Style, color *math32.Color, alpha float32, p
 }
 
 func buttonsHelper(bs *gui.ButtonStyles, color4 math32.Color4) {
+	bs.Normal.BgColor.A = color4.A
 	bs.Over.BgColor = color4
 	bs.Focus.BgColor = color4
 	bs.Pressed.BgColor = color4
 	bs.Pressed.BgColor.A = 1
+	bs.Disabled.BgColor.A = color4.A
 }
 
-func buttonsExHelper(bs *gui.ButtonStyles, color4 math32.Color4, full bool) {
-	buttonExHelper(&bs.Normal, color4, full)
-	buttonExHelper(&bs.Over, color4, full)
-	buttonExHelper(&bs.Focus, color4, full)
-	buttonExHelper(&bs.Pressed, color4, true)
-	bs.Pressed.BgColor.A = 1
-}
-
-func buttonExHelper (bs *gui.ButtonStyle, color4 math32.Color4, full bool) {
-	bs.BgColor = color4
-	if !full && false {
-		bs.BgColor.R *= 0.75
-		bs.BgColor.G *= 0.75
-		bs.BgColor.B *= 0.75
+func buttonsExHelper(bs *gui.ButtonStyles, color math32.Color, lit bool) {
+	if !lit {
+		bs.Over.BgColor.R = color.R
+		bs.Over.BgColor.G = color.G
+		bs.Over.BgColor.B = color.B
+		bs.Focus.BgColor.R = color.R
+		bs.Focus.BgColor.G = color.G
+		bs.Focus.BgColor.B = color.B
+		bs.Pressed.BgColor.R = color.R
+		bs.Pressed.BgColor.G = color.G
+		bs.Pressed.BgColor.B = color.B
+		bs.Pressed.BgColor.A = 1
+	} else {
+		bs.Normal.BgColor.R = 0.5 * (bs.Normal.BgColor.R + color.R)
+		bs.Normal.BgColor.G = 0.5 * (bs.Normal.BgColor.G + color.G)
+		bs.Normal.BgColor.B = 0.5 * (bs.Normal.BgColor.B + color.B)
+		bs.Normal.BgColor.A = 0.5 * (bs.Normal.BgColor.A + 1)
+		bs.Over.BgColor.R = color.R
+		bs.Over.BgColor.G = color.G
+		bs.Over.BgColor.B = color.B
+		bs.Over.BgColor.A = 1
+		bs.Focus.BgColor.R = color.R
+		bs.Focus.BgColor.G = color.G
+		bs.Focus.BgColor.B = color.B
+		bs.Focus.BgColor.A = 1
+		bs.Pressed.BgColor.R = color.R
+		bs.Pressed.BgColor.G = color.G
+		bs.Pressed.BgColor.B = color.B
+		bs.Pressed.BgColor.A = 1
 	}
 }
