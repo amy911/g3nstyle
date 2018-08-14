@@ -1,4 +1,4 @@
-package styles
+package g3nstyle
 
 import (
 	"github.com/g3n/engine/gui"
