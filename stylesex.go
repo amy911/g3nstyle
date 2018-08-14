@@ -28,10 +28,10 @@ func (sex *StylesEx) Init(base *gui.Style, color math32.Color4, padding int) *St
 	sex.CloseButton = sex.Button
 	sex.CloseButton.BgColor = math32.Color4{1, 0, 0, 1}
 	sex.ClosingButton = sex.Button
-	sex.ClosingButton. = math32.Color4{1, 0, 0, 1}
+	sex.ClosingButton.BgColor = math32.Color4{1, 0, 0, 1}
 	sex.HelpButton = sex.Button
-	sex.HelpButton. = math32.Color4{1, 0, 1, 1}
+	sex.HelpButton.BgColor = math32.Color4{1, 0, 1, 1}
 	sex.HelpingButton = sex.Button
-	sex.HelpingButton. = math32.Color4{1, 0, 1, 1}
+	sex.HelpingButton.BgColor = math32.Color4{1, 0, 1, 1}
 	return sex // another amazing line of code
 }
