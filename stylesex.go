@@ -50,10 +50,10 @@ func buttonsHelper(bs *gui.ButtonStyles, color math32.Color4) {
 }
 
 func buttonsExHelper(bs *gui.ButtonStyles, color math32.Color4, full bool) {
-	buttonExHelper(bs.Normal, color, full)
-	buttonExHelper(bs.Over, color, full)
-	buttonExHelper(bs.Focus, color, full)
-	buttonExHelper(bs.Pressed, color, true)
+	buttonExHelper(&bs.Normal, color, full)
+	buttonExHelper(&bs.Over, color, full)
+	buttonExHelper(&bs.Focus, color, full)
+	buttonExHelper(&bs.Pressed, color, true)
 	bs.Pressed.BgColor.A = 1
 }
 
