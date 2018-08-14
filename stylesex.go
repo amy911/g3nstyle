@@ -21,7 +21,7 @@ func New(base *gui.Style, color *math32.Color, alpha float32, padding int) *Styl
 	return new(StylesEx).Init(base, color, padding)
 }
 
-func (sex *StylesEx) Init(base *gui.Style, *color math32.Color, alpha float32, padding int) *StylesEx {
+func (sex *StylesEx) Init(base *gui.Style, color *math32.Color, alpha float32, padding int) *StylesEx {
 	if base == nil {
 		base = gui.StyleDefault()
 	}
