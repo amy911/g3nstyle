@@ -17,13 +17,16 @@ type StylesEx struct {
 	HelpingButton gui.ButtonStyles
 }
 
-func New(base *gui.Style, color math32.Color4, padding int) *StylesEx {
+func New(base *gui.Style, color *math32.Color4, padding int) *StylesEx {
 	return new(StylesEx).Init(base, color, padding)
 }
 
-func (sex *StylesEx) Init(base *gui.Style, color math32.Color4, padding int) *StylesEx {
+func (sex *StylesEx) Init(base *gui.Style, *color math32.Color4, padding int) *StylesEx {
 	if base == nil {
 		base = gui.StyleDefault()
+	}
+	if color == nil {
+		color = &math32.Color4{0x21/255.0, 0x96/255.0, 0xF3/255.0, 0.375}
 	}
 	sex.Style = *base // the best line of code I have ever written
 	buttonsHelper(&sex.Button, color)
