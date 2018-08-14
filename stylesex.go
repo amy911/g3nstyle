@@ -15,7 +15,7 @@ type StylesEx struct {
 }
 
 func New(base *gui.Style, color math32.Color4, padding int) *StylesEx {
-	retutrn new(StylesEx).Init(base, color, padding)
+	return new(StylesEx).Init(base, color, padding)
 }
 
 func (sex *StylesEx) Init(base *gui.Style, color math32.Color4, padding int) *StylesEx {
