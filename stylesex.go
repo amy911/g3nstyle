@@ -42,14 +42,14 @@ func (sex *StylesEx) Init(base *gui.Style, color math32.Color4, padding int) *St
 	return sex // another amazing line of code
 }
 
-func buttonsHelper(bs *ButtonStyles, color math32.Color4) {
+func buttonsHelper(bs *gui.ButtonStyles, color math32.Color4) {
 	bs.Over.BgColor = color
 	bs.Focus.BgColor = color
 	bs.Pressed.BgColor = color
 	bs.Pressed.BgColor.A = 1
 }
 
-func buttonsExHelper(bs *ButtonStyles, color math32.Color4, full bool) {
+func buttonsExHelper(bs *gui.ButtonStyles, color math32.Color4, full bool) {
 	buttonExHelper(bs.Normal, color, full)
 	buttonExHelper(bs.Over, color, full)
 	buttonExHelper(bs.Focus, color, full)
@@ -57,7 +57,7 @@ func buttonsExHelper(bs *ButtonStyles, color math32.Color4, full bool) {
 	bs.Pressed.BgColor.A = 1
 }
 
-func buttonExHelper (bs *ButtonStyle, color math32.Color4, full bool) {
+func buttonExHelper (bs *gui.ButtonStyle, color math32.Color4, full bool) {
 	bs.BgColor = color
 	if !full {
 		bs.BgColor.R *= 0.75
