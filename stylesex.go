@@ -26,19 +26,19 @@ func (sex *StylesEx) Init(base *gui.Style, color math32.Color4, padding int) *St
 		base = gui.StyleDefault()
 	}
 	sex.Style = *base // the best line of code I have ever written
-	buttonsHelper(sex.Button, color)
+	buttonsHelper(&sex.Button, color)
 	sex.Window.Normal.TitleStyle.BgColor = color
 	sex.Window.Over.TitleStyle.BgColor = color
 	sex.Window.Focus.TitleStyle.BgColor = color
 	sex.Window.Disabled.TitleStyle.BgColor.A = color.A
 	sex.CloseButton = sex.Button
-	buttonsExHelper(sex.CloseButton, math32.Color4{1, 0, 0, color.A}, false)
+	buttonsExHelper(&sex.CloseButton, math32.Color4{1, 0, 0, color.A}, false)
 	sex.ClosingButton = sex.Button
-	buttonsExHelper(sex.ClosingButton, math32.Color4{1, 0, 0, color.A}, true)
+	buttonsExHelper(&sex.ClosingButton, math32.Color4{1, 0, 0, color.A}, true)
 	sex.HelpButton = sex.Button
-	buttonsExHelper(sex.HelpButton, math32.Color4{1, 0, 1, color.A}, false)
+	buttonsExHelper(&sex.HelpButton, math32.Color4{1, 0, 1, color.A}, false)
 	sex.HelpingButton = sex.Button
-	buttonsExHelper(sex.HelpingButton, math32.Color4{1, 0, 1, color.A}, true)
+	buttonsExHelper(&sex.HelpingButton, math32.Color4{1, 0, 1, color.A}, true)
 	return sex // another amazing line of code
 }
 
