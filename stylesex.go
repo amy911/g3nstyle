@@ -27,7 +27,10 @@ func (sex *StylesEx) Init(base *gui.Style, color math32.Color4, padding int) *St
 	}
 	sex.Style = *base // the best line of code I have ever written
 	sex.Button.Over.BgColor = color
-	sex.Window.TitleStyle.BgColor = color
+	sex.Window.Normal.TitleStyle.BgColor = color
+	sex.Window.Over.TitleStyle.BgColor = color
+	sex.Window.Focus.TitleStyle.BgColor = color
+	sex.Window.Disabled.TitleStyle.BgColor.A = color.A
 	sex.CloseButton = sex.Button
 	sex.CloseButton.BgColor = math32.Color4{1, 0, 0, 1}
 	sex.ClosingButton = sex.Button
