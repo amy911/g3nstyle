@@ -56,8 +56,8 @@ func buttonsHelper(bs *gui.ButtonStyles, color4 math32.Color4, padding int) {
 	bs.Pressed.BgColor.A = 1
 	bs.Disabled.BgColor.A = color4.A
 
-	normal := gui.RectBounds{2+padding, 4+padding, 2+padding, 4+padding}
-	pressed := gui.RectBounds{2+padding, 2+padding, 0+padding, 4+padding}
+	normal := gui.RectBounds{float32(2+padding), float32(4+padding), float32(2+padding), float32(4+padding)}
+	pressed := gui.RectBounds{float32(2+padding), float32(2+padding), float32(0+padding), float32(4+padding)}
 	bs.Normal.Padding = normal
 	bs.Over.Padding = normal
 	bs.Focus.Padding = normal
