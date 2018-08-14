@@ -65,7 +65,7 @@ func buttonsExHelper(bs *gui.ButtonStyles, color4 math32.Color4, full bool) {
 
 func buttonExHelper (bs *gui.ButtonStyle, color4 math32.Color4, full bool) {
 	bs.BgColor = color4
-	if !full {
+	if !full && false {
 		bs.BgColor.R *= 0.75
 		bs.BgColor.G *= 0.75
 		bs.BgColor.B *= 0.75
