@@ -11,10 +11,10 @@ import (
 type StylesEx struct {
 	gui.Style
 
-	CloseButton   gui.ButtonStyle
-	ClosingButton gui.ButtonStyle
-	HelpButton    gui.ButtonStyle
-	HelpingButton gui.ButtonStyle
+	CloseButton   gui.ButtonStyles
+	ClosingButton gui.ButtonStyles
+	HelpButton    gui.ButtonStyles
+	HelpingButton gui.ButtonStyles
 }
 
 func New(base *gui.Style, color math32.Color4, padding int) *StylesEx {
