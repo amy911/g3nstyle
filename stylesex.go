@@ -40,13 +40,13 @@ func (sex *StylesEx) Init(base *gui.Style, color *math32.Color, alpha float32, p
 	sex.Window.Focus.TitleStyle.BgColor = color4
 	sex.Window.Disabled.TitleStyle.BgColor.A = color4.A
 	sex.CloseButton = sex.Button
-	buttonsExHelper(&sex.CloseButton, math32.Color{1, 0, 0}, padding, false)
+	buttonsExHelper(&sex.CloseButton, math32.Color{1, 0, 0}, true, false)
 	sex.ClosingButton = sex.Button
-	buttonsExHelper(&sex.ClosingButton, math32.Color{1, 0, 0}, padding, true)
+	buttonsExHelper(&sex.ClosingButton, math32.Color{1, 0, 0}, true, true)
 	sex.HelpButton = sex.Button
-	buttonsExHelper(&sex.HelpButton, math32.Color{1, 0, 1}, 0, false)
+	buttonsExHelper(&sex.HelpButton, math32.Color{1, 0, 1}, false, false)
 	sex.HelpingButton = sex.Button
-	buttonsExHelper(&sex.HelpingButton, math32.Color{1, 0, 1}, 0, true)
+	buttonsExHelper(&sex.HelpingButton, math32.Color{1, 0, 1}, false, true)
 	return sex // another amazing line of code
 }
 
@@ -67,7 +67,7 @@ func buttonsHelper(bs *gui.ButtonStyles, color4 math32.Color4, padding int) {
 	bs.Disabled.Padding = normal
 }
 
-func buttonsExHelper(bs *gui.ButtonStyles, color math32.Color, widePadding int, lit bool) {
+func buttonsExHelper(bs *gui.ButtonStyles, color math32.Color, wide, lit bool) {
 	if !lit {
 		bs.Over.BgColor.R = color.R
 		bs.Over.BgColor.G = color.G
@@ -97,17 +97,17 @@ func buttonsExHelper(bs *gui.ButtonStyles, color math32.Color, widePadding int, 
 		bs.Pressed.BgColor.B = color.B
 		bs.Pressed.BgColor.A = 1
 	}
-	widePaddingHelper(&bs.Normal.Padding, widePadding)
-	widePaddingHelper(&bs.Over.Padding, widePadding)
-	widePaddingHelper(&bs.Focus.Padding, widePadding)
-	widePaddingHelper(&bs.Pressed.Padding, widePadding)
-	widePaddingHelper(&bs.Disabled.Padding, widePadding)
+	if wide {
+		widePaddingHelper(&bs.Normal.Padding)
+		widePaddingHelper(&bs.Over.Padding)
+		widePaddingHelper(&bs.Focus.Padding)
+		widePaddingHelper(&bs.Pressed.Padding)
+		widePaddingHelper(&bs.Disabled.Padding)
+	}
 }
 
-func widePaddingHelper(rb *gui.RectBounds, widePadding int) {
-	if widePadding != 0 {
-		rb.Right = maths.Fma32(2.0, rb.Right, -2.0)
-		rb.Left = maths.Fma32(2.0, rb.Left, -2.0)
-	}
+func widePaddingHelper(rb *gui.RectBounds) {
+	rb.Right = maths.Fma32(2.0, rb.Right, -2.0)
+	rb.Left = maths.Fma32(2.0, rb.Left, -2.0)
 }
 
