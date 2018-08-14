@@ -26,18 +26,42 @@ func (sex *StylesEx) Init(base *gui.Style, color math32.Color4, padding int) *St
 		base = gui.StyleDefault()
 	}
 	sex.Style = *base // the best line of code I have ever written
-	sex.Button.Over.BgColor = color
+	buttonsHelper(sex.Button, color)
 	sex.Window.Normal.TitleStyle.BgColor = color
 	sex.Window.Over.TitleStyle.BgColor = color
 	sex.Window.Focus.TitleStyle.BgColor = color
 	sex.Window.Disabled.TitleStyle.BgColor.A = color.A
 	sex.CloseButton = sex.Button
-	sex.CloseButton.BgColor = math32.Color4{1, 0, 0, 1}
+	buttonsExHelper(sex.CloseButton, math32.Color4{1, 0, 0, color.A}, false)
 	sex.ClosingButton = sex.Button
-	sex.ClosingButton.BgColor = math32.Color4{1, 0, 0, 1}
+	buttonsExHelper(sex.ClosingButton, math32.Color4{1, 0, 0, color.A}, true)
 	sex.HelpButton = sex.Button
-	sex.HelpButton.BgColor = math32.Color4{1, 0, 1, 1}
+	buttonsExHelper(sex.HelpButton, math32.Color4{1, 0, 1, color.A}, false)
 	sex.HelpingButton = sex.Button
-	sex.HelpingButton.BgColor = math32.Color4{1, 0, 1, 1}
+	buttonsExHelper(sex.HelpingButton, math32.Color4{1, 0, 1, color.A}, true)
 	return sex // another amazing line of code
+}
+
+func buttonsHelper(bs *ButtonStyles, color math32.Color4) {
+	bs.Over.BgColor = color
+	bs.Focus.BgColor = color
+	bs.Pressed.BgColor = color
+	bs.Pressed.BgColor.A = 1
+}
+
+func buttonsExHelper(bs *ButtonStyles, color math32.Color4, full bool) {
+	buttonExHelper(bs.Normal, color, full)
+	buttonExHelper(bs.Over, color, full)
+	buttonExHelper(bs.Focus, color, full)
+	buttonExHelper(bs.Pressed, color, true)
+	bs.Pressed.BgColor.A = 1
+}
+
+func buttonExHelper (bs *ButtonStyle, color math32.Color4, full bool) {
+	bs.BgColor = color
+	if !full {
+		bs.BgColor.R *= 0.75
+		bs.BgColor.G *= 0.75
+		bs.BgColor.B *= 0.75
+	}
 }
