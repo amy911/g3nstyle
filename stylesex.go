@@ -104,8 +104,8 @@ func buttonsExHelper(bs *gui.ButtonStyles, color math32.Color, widePadding int, 
 
 func widePaddingHelper(rb *gui.RectBounds, widePadding int) {
 	if widePadding != 0 {
-		rb.Right += rb.Right - 2 + widePadding
-		rb.Left += rb.Left - 2 + widePadding
+		rb.Right = 2.0 * rb.Right - 2.0
+		rb.Left = 2.0 * rb.Left - 2.0
 	}
 }
 
