@@ -2,7 +2,10 @@
 
 package g3nstyle
 
-import "github.com/g3n/engine/gui"
+import (
+	"github.com/g3n/engine/gui"
+	"github.com/g3n/engine/math32"
+)
 
 // StylesEx describes the extended styles for the g3n game engine.
 type StylesEx struct {
