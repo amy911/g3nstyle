@@ -3,7 +3,7 @@
 package g3nstyle
 
 import (
-	"github.com/amy911/amy911/maths"
+	"github.com/suite911/maths911/maths"
 
 	"github.com/g3n/engine/gui"
 	"github.com/g3n/engine/math32"
