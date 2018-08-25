@@ -107,7 +107,7 @@ func buttonsExHelper(bs *gui.ButtonStyles, color math32.Color, wide, lit bool) {
 }
 
 func widePaddingHelper(rb *gui.RectBounds) {
-	rb.Right = maths.Fma32(2.0, rb.Right, -2.0)
-	rb.Left = maths.Fma32(2.0, rb.Left, -2.0)
+	rb.Right = maths.FmaFloat32(2.0, rb.Right, -2.0)
+	rb.Left = maths.FmaFloat32(2.0, rb.Left, -2.0)
 }
 
